@@ -74,8 +74,9 @@ viewportToGrid v = [[let vCell = (i,j) `vCellLookup` vCells in (charMap vCell, g
                     | i <- [limL..limR]]
                     | j <- reverse [limL..limR]]
     where
-    limL = (-caSize `div` 2) - 5
-    limR = (caSize `div` 2) + 5
+    limL :: Int
+    limL = (-caSize `div` 2) - (caSize `div` 10 * 4)
+    limR = (caSize `div` 2) + (caSize `div` 10 * 4)
     vCells = depthAnalysis v 
 
     charMap :: Maybe a -> Char

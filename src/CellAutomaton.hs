@@ -37,7 +37,7 @@ updateCell prev neighbours
 
 -- Updates the whole CA
 updateCA :: CA -> CA 
--- updateCA (cells, stage) = (cells, stage + 1) -- DUMMY: Uncomment below
+updateCA (cells, stage) = (cells, stage + 1) -- DUMMY: Uncomment below
 updateCA (cells, stage) = (newCells, stage + 1) 
      where
      newCells = treeFromList [ cellPos | x <- [limL..limR], 
@@ -50,19 +50,22 @@ updateCA (cells, stage) = (newCells, stage + 1)
 
 
 -- Initializes the CA 
-initCA'' :: CA
-initCA'' = (treeFromList initPointsF, 0) 
+initCA :: CA
+initCA = (treeFromList initPointsF, 0) 
     where 
     limL = -caSize `div` 2
     limR = caSize `div` 2
-    initPoints = [(limL, limL, j) | j <- [limL..limR]] ++
-                 [(limL, limR, j) | j <- [limL..limR]]  ++
-                 [(i, limL, limL) | i <- [limL..limR]] ++
-                 [(i, limR, limL) | i <- [limL..limR]]
+    initPoints = concat [[(limL, limL, x), (limL, limR, x),
+                  (limR, limL, x), (limR, limR, x),
+                  (x, limL, limR), (x, limL, limL),
+                  (x, limR, limL), (x, limR, limR),
+                  (limL, x, limR), (limL, x, limL),
+                  (limR, x, limL), (limR, x, limR)]
+                  | x <- [limL..limR]]
     initPointsF = map intToVect initPoints
 
-initCA :: CA
-initCA = (treeFromList [(0, 0, 0)], 0)
+initCA' :: CA
+initCA' = (treeFromList [(0, 0, 0)], 0)
 
 
 -- Converts a CA to a list, hiding the underlying representation
