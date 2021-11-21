@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/63662243/rgb-terminal-colors-with-haskell-and-brick
+https://github.com/jtdaugherty/brick/blob/master/docs/samtay-tutorial.md
+https://github.com/jtdaugherty/brick/blob/master/docs/guide.rst
