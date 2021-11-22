@@ -1,4 +1,5 @@
 # 3D Cellular Automaton in ASCII Art
+@author: Codrin Iftode
 ### Main idea
 The program records a 2-state 3D cellular automaton using a Von Neumann neighbourhood as it evolves through a number of stages.
 The automaton is represented as the list of 3d vectors corresponding to the alive cells in the automaton.<br>
@@ -27,5 +28,5 @@ https://stackoverflow.com/questions/63662243/rgb-terminal-colors-with-haskell-an
 https://github.com/jtdaugherty/brick/blob/master/docs/guide.rst -- Intro to IO and Monads<br>
 https://www.haskell.org/tutorial/io.html -- IO and Monads <br>
 https://softologyblog.wordpress.com/2019/12/28/3d-cellular-automata-3/ -- Original idea<br>
-Square font: https://strlen.com/square/
+Square font: https://strlen.com/square/<br>
 FP Tutorial 8 - ideas for the Tree structure
